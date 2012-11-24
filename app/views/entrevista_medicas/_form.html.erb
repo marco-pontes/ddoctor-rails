@@ -1,0 +1,45 @@
+<%= form_for(@entrevista_medica) do |f| %>
+  <% if @entrevista_medica.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@entrevista_medica.errors.count, "error") %> prohibited this entrevista_medica from being saved:</h2>
+
+      <ul>
+      <% @entrevista_medica.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :problema %><br />
+    <%= f.text_field :problema %>
+  </div>
+  <div class="field">
+    <%= f.label :medicacao %><br />
+    <%= f.text_field :medicacao %>
+  </div>
+  <div class="field">
+    <%= f.label :observacoes %><br />
+    <%= f.text_field :observacoes %>
+  </div>
+  <div class="field">
+    <%= f.label :laudoMedico %><br />
+    <%= f.text_field :laudoMedico %>
+  </div>
+  <div class="field">
+    <%= f.label :altura %><br />
+    <%= f.text_field :altura %>
+  </div>
+  <div class="field">
+    <%= f.label :peso %><br />
+    <%= f.text_field :peso %>
+  </div>
+  <div class="field">
+    <%= f.label :pressao %><br />
+    <%= f.text_field :pressao %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

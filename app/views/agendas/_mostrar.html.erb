@@ -1,0 +1,95 @@
+<div id="page-layout">
+	<div id="page-content">
+		<div id="page-content-wrapper">
+			<div class="inner-page-title">
+				<h2>
+					<%= t (:agenda_show_title) %> <%= @medico.nome %>
+				</h2>
+				<span><%= t :agenda_show_welcome_hint %></span>
+			</div>
+			<div class="clear"></div>
+			<div class="content-box">
+				<% if flash[:mensagem] -%>
+		            	<div class="response-msg <%= flash[:mensagem][:tipo] %> ui-corner-all">
+		            		<% if flash[:mensagem][:tipo] == "info" -%>
+								<span> <%= t :info_box_label %></span>
+							<% end -%>
+							<% if flash[:mensagem][:tipo] == "success"-%>
+								<span> <%= t :success_box_label %></span>
+							<% end -%>
+							<% if flash[:mensagem][:tipo] == "error" -%>
+								<span> <%= t :error_box_label %></span>
+							<% end -%>
+							<%= flash[:mensagem][:texto] %>
+						</div>
+					<% end -%>
+				<div class="other-box gray-box float-left ui-corner-all"
+					style="width: 100%">
+					<div class="cont ui-corner-all">
+						<h3>
+							<%= @medico.nome %>
+						</h3>
+					</div>
+					<div id="tabs" class="ui-widget ui-corner-all">
+						<div id="tabs-1" class="ui-corner-bottom">
+							<div id="agenda"></div>
+						</div>
+					</div>
+				</div>
+				<div class="clear"></div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="invisivel">
+	<% @medico.agenda.consultas.each do |consulta| %>
+		<div class="evento">
+			<% if usuario_session[:perfil] == 'ROLE_ATENDENTE' %>
+				<span class="titulo"><%= t :consultation_scheduled_name, :nome => consulta.paciente.nome %></span>
+			<% else %>
+				<span class="titulo"><%= t :consultation_scheduled_noname %> </span>
+			<% end %>
+			<span class="inicio"><%= I18n.localize(consulta.data, :format => :scheduled_events, :locale => :en) %></span>
+		</div>
+	<% end %>
+</div>
+
+<script>
+	$(document).ready(function() {
+		
+		var date = new Date();
+		var d = date.getDate();
+		var m = date.getMonth();
+		var y = date.getFullYear();
+		var h = date.getHours();
+		var eventos = [];
+		function adicionaEvento(){
+			var evento = new Object(); 
+			var titulo = $(this).find('span.titulo').html();
+			var inicio = new Date($(this).find('span.inicio').html());
+			evento.title = titulo;
+			evento.start = inicio;
+			evento.end = inicio;
+			evento.allDay = false;
+			eventos.push(evento);
+		}
+		
+		$('.evento').each(adicionaEvento);
+		
+		
+		$('div#agenda').fullCalendar({
+			theme: false,
+			allDaySlot:true,
+			minTime:6,
+			maxTime:18,
+			header: {
+				left: 'prev,next today',
+				center: 'title',
+				right: 'month,agendaWeek,agendaDay'
+				}, 
+			editable: true,
+			events: eventos
+		});
+	})
+
+</script>

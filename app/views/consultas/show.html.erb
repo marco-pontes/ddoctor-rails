@@ -1,0 +1,65 @@
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <g:set var="entityName" value="${message(code: 'consulta.label', default: 'Consulta')}" />
+        <title><%= t :default_show_label %></title>
+        <%= javascript_include_tag "consulta/confirmacao" %>
+    </head>
+    <body>
+    
+    	<div id="sub-nav">
+    		<%= breadcrumb(t(:consultation_confirm_title), false) %>
+		</div>
+		<div id="page-layout">
+			<div id="page-content">
+				<div id="page-content-wrapper">
+					<div class="inner-page-title">
+	          			<h2><%= t :consultation_confirm_welcome_message %></h2>
+						<span><%= t :consultation_confirm_welcome_hint %></span>
+					</div>
+					<div class="clear"></div>
+					<div class="content-box">
+			           	<% if flash[:mensagem] -%>
+			            	<div class="response-msg <%= flash[:mensagem][:tipo] %> ui-corner-all">
+			            		<% if flash[:mensagem][:tipo] == "info" -%>
+									<span> <%= t :info_box_label %></span>
+								<% end -%>
+								<% if flash[:mensagem][:tipo] == "success"-%>
+									<span> <%= t :success_box_label %></span>
+								<% end -%>
+								<% if flash[:mensagem][:tipo] == "error" -%>
+									<span> <%= t :error_box_label %></span>
+								<% end -%>
+								<%= flash[:mensagem][:texto] %>
+							</div>
+						<% end -%>
+						<%= render :partial => '/consultas/mostrar', :locals => {:consultaInstancia => @consulta, :smallPictures => false}  %>
+						<% if @consulta.status == Consulta::CANCELADA %>
+			            	<div class="response-msg error ui-corner-all">
+								<span><%= t :info_box_label %></span>
+								<%= t :consultation_status_canceled %>
+							</div>
+			            <% end %>
+	                    <% if @tarefa != nil and @tarefa.status != Tarefa::CANCELADA %>
+		                    <ul>
+		                    	<li class="buttons">
+		                    		<%= link_to consultas_confirmar_path(:id => @tarefa.consulta.id, :tarefa_id => @tarefa.id, :irPara => "dashboard"), 
+									:class => 'btn ui-state-default ui-corner-all', :onclick => "return confirm(#{t :message_confirm_consultation_confirmation});", 
+									:style => "float:left;" do %>
+										<span class="ui-icon ui-icon ui-icon-link"></span>
+			  							<%=t :button_confirm_consultation_label %>
+									<% end %>
+		                    		<%= link_to consultas_cancelar_path(:id => @tarefa.consulta.id, :tarefa_id => @tarefa.id), :class => 'btn ui-state-default ui-corner-all', :onclick => "return confirm(#{t :message_cancel_consultation_confirmation});", :style => "float:left;" do %>
+										<span class="ui-icon ui-icon ui-icon-link"></span>
+			  							<%=t :button_cancel_consultation_label %>
+									<% end %>
+								</li>
+							</ul>
+						<% end %>
+        			</div>
+        			<%= render :partial => 'templates/sidebar' %>
+        		</div>
+        	</div>
+        </div>
+    </body>
+</html>

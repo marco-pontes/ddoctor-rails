@@ -1,0 +1,41 @@
+<% if !@atendimentosAguardandoChegada.empty? %>
+	<table >
+		<thead>
+			<tr>
+				<td><input type="checkbox" class="checkbox" value="" /></td>
+				<td><%=t :consultation_list_pacient_label %></td>
+				<td><%=t :consultation_list_status_label %></td>
+				<td><%=t :consultation_list_data_label %></td>
+				<td><%=t :consultation_list_options_label %></td>
+			</tr>
+		</thead>
+		<tbody>
+			<% @atendimentosAguardandoChegada.each_with_index do |atendimento, i| %>
+				<tr class="<%= (i%2 == 0) ? '' : 'alt' %>">  	  	
+					<td>
+						<input type="checkbox" class="checkbox" value=""/>
+					</td>
+					<td>
+						<%= atendimento.paciente.nome %>
+					</td>
+					<td>
+						<%= atendimento.status %>  
+					</td>
+					<td>
+						<%=  l atendimento.consulta.data, :format => :date %>  
+					</td>
+					<td>
+						<%= link_to "", :class => 'btn ui-state-default ui-corner-all', :href => "javascript: confirmaChegada(#{atendimento.id});" do %>
+							<span class="ui-icon ui-icon ui-icon-gripsmall-diagonal-se"></span>
+							<%=t :button_confirm_arrival %>
+						<% end %>
+					</td>
+				</tr>
+			<% end %>
+		</tbody>
+	</table>
+	<% else %>
+	<div class="content-box-wrapper">
+		<h4 style="border-bottom:none;"><%=t :nenhuma_consulta_message %></h4>
+	</div>
+	<% end %>

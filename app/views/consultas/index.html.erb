@@ -1,0 +1,31 @@
+<h1>Listing consulta</h1>
+
+<table>
+  <tr>
+    <th>Medico</th>
+    <th>Paciente</th>
+    <th>Data</th>
+    <th>Status</th>
+    <th>Entrevistamedica</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @consulta.each do |consultum| %>
+  <tr>
+    <td><%= consultum.medico %></td>
+    <td><%= consultum.paciente %></td>
+    <td><%= consultum.data %></td>
+    <td><%= consultum.status %></td>
+    <td><%= consultum.entrevistaMedica %></td>
+    <td><%= link_to 'Show', consultum %></td>
+    <td><%= link_to 'Edit', edit_consultum_path(consultum) %></td>
+    <td><%= link_to 'Destroy', consultum, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Consultum', new_consultum_path %>

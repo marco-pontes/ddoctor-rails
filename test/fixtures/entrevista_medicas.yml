@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  problema: MyString
+  medicacao: MyString
+  observacoes: MyString
+  laudoMedico: MyString
+  altura: MyString
+  peso: MyString
+  pressao: MyString
+
+two:
+  problema: MyString
+  medicacao: MyString
+  observacoes: MyString
+  laudoMedico: MyString
+  altura: MyString
+  peso: MyString
+  pressao: MyString

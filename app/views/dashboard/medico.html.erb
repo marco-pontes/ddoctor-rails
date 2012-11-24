@@ -1,0 +1,175 @@
+<html>
+<head>
+<title>Welcome to Grails</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+	<%= javascript_include_tag "dashboard/medico" %>
+</head>
+<body>
+	<div id="sub-nav">
+		<%= breadcrumb(t(:dashboard_doctor_title), true) %>
+	</div>
+	<div id="page-layout">
+		<div id="page-content">
+			<div id="page-content-wrapper">
+				<div class="inner-page-title">
+					<h2>
+						<%= t :dashboard_doctor_welcome_message %>
+					</h2>
+					<span> <%= t :dashboard_doctor_welcome_hint %></span>
+				</div>
+				<div class="clear"></div>
+				<div class="content-box">
+					<% if flash[:mensagem] -%>
+		            	<div class="response-msg <%= flash[:mensagem][:tipo] %> ui-corner-all">
+		            		<% if flash[:mensagem][:tipo] == "info" -%>
+								<span> <%= t :info_box_label %></span>
+							<% end -%>
+							<% if flash[:mensagem][:tipo] == "success"-%>
+								<span> <%= t :success_box_label %></span>
+							<% end -%>
+							<% if flash[:mensagem][:tipo] == "error" -%>
+								<span> <%= t :error_box_label %></span>
+							<% end -%>
+							<%= flash[:mensagem][:texto] %>
+						</div>
+					<% end -%>
+					<div class="clear"></div>
+					<div class="inner-page-title">
+						<h2>
+							<%= t :information_section_title %>
+						</h2>
+						<span><%= t :information_section_hint %></span>
+					</div>
+					<div class="three-column sortable">
+					<div class="three-col-mid">
+						<div class="column col1">
+							
+							<div class="content-box content-box-header ui-corner-all">
+								<div class="ui-state-default ui-corner-top ui-box-header">
+									<span class="ui-icon float-left ui-icon-signal"></span>
+									<%= :dashboard_consultas_aguardando %>
+								</div>
+								<div class="hastable">
+									<% if @proximosAtendimentos.length() > 0 %>
+										<table id="sort-table"> 
+											<thead>
+												<tr>
+													<td><input type="checkbox" class="checkbox" value="" />
+													</td>
+													<td><%= t :dashboard_consultas_horario %></td>
+													<td><%= t :dashboard_consultas_paciente_nome %></td>
+													<td><%= t :dashboard_atendimento_status %></td>
+													<td>Pago?</td>
+	
+													<td><%= t :dashboard_atendimento_opcoes %></td>
+												</tr>
+											</thead>
+											<tbody>
+													<% @proximosAtendimentos.each_with_index do |atendimento, i| %>
+														<tr class="#{ (i%2 == 0) ? '' : 'alt' }">  	  	
+															<td>
+																<input type="checkbox" class="checkbox" value=""/>
+															</td>
+															<td>
+																<%= l atendimento.consulta.data %>
+															</td>
+															<td>
+																<%= atendimento.paciente.nome %>
+															</td>
+															<td>
+																<%= atendimento.status %>
+															</td>
+															<td>
+																<% if atendimento.pago %>
+																	<%= t :message_yes %>
+																<% else %> 
+																	<%= t :message_no %>
+																<% end %>	
+															</td>
+															<td>
+																<%= link_to new_consulta_entrevista_medica_path(:consulta_id => atendimento.id), :class => "btn ui-state-default ui-corner-all" do %>
+																	<span class="ui-icon ui-icon ui-icon-gripsmall-diagonal-se"></span>
+																	<%= t :botao_iniciar_consulta %>
+																<% end %>
+															</td>
+														</tr>
+													<% end %>
+											</tbody>
+										</table>
+									<% else %>
+										<div class="content-box-wrapper">
+											<h4 style="border-bottom:none;"><%= t :nenhuma_consulta_message %></h4>
+										</div>
+									<% end %>
+								</div>
+							</div>
+						</div>
+
+						<div class="column col2">
+							
+						</div>
+
+						<div class="column col3">
+
+							<div class="content-box content-box-header">
+								<div class="content-box-wrapper">
+									<h3>Resumo dos Atendimentos Atuais</h3>
+									<p>
+										<b><%= t :atendimentos_aguardando_message %> </b>
+										<%= @proximosAtendimentos.length() %>
+									</p>
+									<p>
+										<b><%= t :consultas_finalizados_message %></b>
+										<%= @consultasFinalizadas.length() %>
+									</p>
+								</div>
+							</div>
+							
+						</div>
+					</div>
+				</div>
+				<div class="clear"></div>
+					<div class="inner-page-title">
+						<h2>
+							<%= t :personal_section_title %>
+						</h2>
+						<span><%= t :personal_section_hint %>
+						</span>
+					</div>
+					<div class="two-column">
+						<div class="column" unselectable="on" style="-moz-user-select: none;">
+							<%= render :partial => '/dashboard/listaMensagens', :listaMensagens => @listaMensagens %>
+						</div>
+						<div class="column column-right" style="-moz-user-select: none;" unselectable="on">
+							<div class="portlet ui-widget ui-helper-clearfix ui-corner-all">
+								<div class="portlet-header ui-widget-header">
+									<%= t :box_agenda_title %>
+									<span class="ui-icon ui-icon-circle-arrow-s"></span>
+										<div id="agendaDia"></div>
+										<%= link_to "", :href => "#", :onClick => "javascript:abreModalAgenda(event, #{current_usuario.id})" do %>
+											<%= t :link_agenda_medico %>
+										<% end %>
+								</div>
+							</div>
+						
+						</div>
+						
+					</div>
+					<div class="clear"></div>
+				</div>
+				<%= render :partial => 'templates/sidebar' %>
+			</div>
+			<div class="clear"></div>
+		</div>
+	</div>
+	<div class="invisivel">
+		<% @proximosAtendimentos.each do |atendimento| %>
+			<div class="evento">
+				<span class="titulo">Consulta <%= atendimento.paciente.nome %></span>
+				<span class="inicio"><%= l atendimento.consulta.data %></span>
+			</div>
+		<% end %>
+	</div>
+</body>
+
+</html>

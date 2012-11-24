@@ -1,0 +1,257 @@
+.agenda a {
+	display:block;
+}
+.fc-agenda-axis{}
+
+.agenda .ui-widget-header a {
+	width:16px;
+	float: left;
+}
+
+.agenda .ui-widget-header {
+    height: 8px;
+    text-align: center;
+	 padding: 5px 0;
+}
+.agenda .ui-icon-circle-triangle-w {
+    background-position: -80px -194px;
+}
+.agenda .ui-icon-circle-triangle-e {
+    background-position: -48px -194px;
+}
+.agenda .ui-icon{
+	height: 12px;
+}
+.agenda .ui-widget-header a:hover {
+	font-weight: normal;
+	width:16px;
+	
+}
+
+.agenda td a {
+    height: 22px;
+    width: 96%;
+}
+
+.agenda caption, .agenda th, .agenda td {
+    text-align: center;
+}
+
+.agenda table {
+ 	margin:auto;
+ 	width: 96%;
+}
+
+.minha-tabela tr td, .minha-tabela thead th {
+	padding: 4px 7px 4px 7px;
+	text-align: left;
+}
+
+.plano-saude tr td{
+	border: medium none;
+	text-align:center;
+}
+
+.ui-accordion .ui-accordion-header a {
+    display: block;
+    font-size: 1em;
+    padding: 0.5em 0.5em 0.5em 2.2em;
+}
+
+.ui-accordion .ui-accordion-header .ui-icon {
+    left: 0.5em;
+    margin-top: -8px;
+    position: absolute;
+    top: 50%;
+}
+
+.ui-accordion .ui-accordion-header {
+    border-bottom-style: solid;
+    cursor: pointer;
+    font-size: 1em;
+    margin: 1px 0 0;
+    padding: 0;
+    position: relative;
+}
+
+.content-box-header h4 {
+    margin: 0 0 0;
+    padding: 6px 0 4px;
+}
+
+.ui-accordion-content{
+	padding:13px;
+	
+}
+
+/* css for timepicker */
+.ui-timepicker-div .ui-widget-header { margin-bottom: 8px; }
+.ui-timepicker-div dl { text-align: left; }
+.ui-timepicker-div dl dt { height: 25px; margin-bottom: -25px; }
+.ui-timepicker-div dl dd { margin: 0 10px 10px 65px; }
+.ui-timepicker-div td { font-size: 90%; }
+.ui-tpicker-grid-label { background: none; border: none; margin: 0; padding: 0; }
+.invisivel {
+	display:none;
+}
+
+
+
+.blue-box {
+    background: none repeat scroll 0 0 #71C9FF;
+    border: 1px solid #67B4EF;
+}
+
+/*
+ * jQuery UI Autocomplete 1.8.14
+ *
+ * Copyright 2011, AUTHORS.txt (http://jqueryui.com/about)
+ * Dual licensed under the MIT or GPL Version 2 licenses.
+ * http://jquery.org/license
+ *
+ * http://docs.jquery.com/UI/Autocomplete#theming
+ */
+.ui-autocomplete { position: absolute; cursor: default; width:300px;height:300px;}	
+
+/* workarounds */
+* html .ui-autocomplete { width:1px; } /* without this, the menu expands to 100% in IE6 */
+
+/*
+ * jQuery UI Menu 1.8.14
+ *
+ * Copyright 2010, AUTHORS.txt (http://jqueryui.com/about)
+ * Dual licensed under the MIT or GPL Version 2 licenses.
+ * http://jquery.org/license
+ *
+ * http://docs.jquery.com/UI/Menu#theming
+ */
+.ui-menu {
+	list-style:none;
+	padding: 2px;
+	margin: 0;
+	display:block;
+	float: left;
+}
+.ui-menu .ui-menu {
+	margin-top: -3px;
+}
+.ui-menu .ui-menu-item {
+	margin:0;
+	padding: 0;
+	zoom: 1;
+	float: left;
+	clear: left;
+	width: 100%;
+}
+.ui-menu .ui-menu-item a {
+	text-decoration:none;
+	display:block;
+	padding:.2em .4em;
+	line-height:1.5;
+	zoom:1;
+}
+.ui-menu .ui-menu-item a.ui-state-hover,
+.ui-menu .ui-menu-item a.ui-state-active {
+	font-weight: normal;
+	margin: -1px;
+}
+
+.buttons-wrapper {
+	background-color: #DDDDDD;
+    border-radius: 2px 2px 2px 2px;
+    margin-top: 16px;
+}
+
+.task-text {
+	    margin-top: 16px;
+/*     min-height: 160px; */
+	
+}
+
+span.ui-button {
+display: inline-block;
+}
+
+.paginacao {
+    background-color: #DDDDDD;
+    border-radius: 2px 2px 2px 2px;
+    font-size: 12px;
+    height: 30px;
+    line-height: 30px;
+    margin: 8px auto 0;
+    text-align: center;
+    width: 400px;
+}
+
+.paginacao .currentStep {
+	font-weight: bold;
+	margin: 0 4px;
+}
+
+.paginacao .nextLink{
+	float:right;
+}
+
+.yellow-box .btn{
+	float:right;
+}
+
+table.listagem td, table.listagem tr{
+	text-indent:16px;
+}
+
+.paciente, .medico{
+	width:50%;
+	float:left;
+}
+
+.paciente .foto, .medico .foto{
+	float:left;
+	width:28%
+}
+
+.paciente .nome, .medico .nome{
+	float:left;
+	width:50%;
+	padding: 12px 10px;
+}
+
+.paciente .dados, .medico .dados{
+	float:left;
+	width:30%;
+	padding: 10px 10px;
+}
+
+
+.paciente, .medico{
+	width:50%;
+	float:left;
+}
+
+.paciente .foto, .medico .foto {
+	float:left;
+	width:135px;
+}
+
+.paciente .foto_pequena, .medico .foto_pequena{
+	float:left;
+	width:43px;
+}
+
+.paciente .nome, .medico .nome{
+	float:left;
+	width:50%;
+	padding: 12px 10px;
+}
+
+.paciente .dados, .medico .dados{
+	float:left;
+	width:50%;
+	padding: 0;
+}
+
+table.listagem tr td{
+	padding:0;
+}
+
+

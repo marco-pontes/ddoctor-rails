@@ -1,0 +1,89 @@
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="layout" content="main" />
+        <g:set var="entityName" value="${message(code: 'medico.label', default: 'Medico')}" />
+        <title><%= t :default_list_label %></title>
+		<%= javascript_include_tag "medico/listar" %>    
+    </head>
+    <body>
+    	<div id="sub-nav">
+    		<%= breadcrumb(t(:medicos_page_title), true) %>
+		</div>
+		<div id="page-layout">
+			<div id="page-content">
+				<div id="page-content-wrapper">
+					<div class="inner-page-title">
+	          			<h2><%= t :doctor_list_inner_title %> </h2>
+						<span><%= t :doctor_list_inner_hint %></span>
+					</div>
+		            <% if flash[:mensagem] -%>
+		            	<div class="response-msg <%= flash[:mensagem][:tipo] %> ui-corner-all">
+		            		<% if flash[:mensagem][:tipo] == "info" -%>
+								<span> <%= t :info_box_label %></span>
+							<% end -%>
+							<% if flash[:mensagem][:tipo] == "success"-%>
+								<span> <%= t :success_box_label %></span>
+							<% end -%>
+							<% if flash[:mensagem][:tipo] == "error" -%>
+								<span> <%= t :error_box_label %></span>
+							<% end -%>
+							<%= flash[:mensagem][:texto] %>
+						</div>
+					<% end -%>
+		            <% if @medicos.length() > 0 %>
+						<div class="hastable">
+							<form name="myform" method="post" action="" class="lista">
+								<table class="listagem" id="sort-table"> 
+									<thead> 
+										<tr>
+				                            <th><%= t :medico_foto_label %></th>
+				                            <th><%= t :medico_nome_label %></th>
+				                            <th><%= t :medico_telefone_label %></th>
+				                            <th><%= t :medico_email_label %></th>
+				                            <th><%= t :medico_precoConsulta_label %></th>
+	                           				<th><%= t :medico_agenda_label %></th>
+	                           			</tr>
+	                           		</thead>
+	                           		<tbody>
+										<% @medicos.each_with_index do |medico, i| %> 
+											<tr>
+												<td>
+													<%= image_tag("no_picture_doctor_small2.png")%>
+												</td>
+												<td>
+													<h3><%= medico.nome %></h3>
+													<div class="tooltip" style="color: #1A4A85; cursor: default;" title="#{medico.especialidade.descricao}">
+														<%= medico.especialidade.nome %>
+													</div>
+												</td>
+												<td>
+													<%= medico.telefone %> <br/>
+												</td>
+												<td>
+													<%= medico.email %><br/>
+												</td>
+												<td>
+													<div><%= t :medico_preco_consulta_label %>
+														<%= number_to_currency medico.precoConsulta %>
+													</div>
+												</td>
+												<td>
+												<%= link_to "", :href => "#", :title=>"#{t(:open_agenda_button_title)}", :onClick => "javascript:abreModalAgenda(event, #{medico.id})", :class => "btn_no_text btn ui-state-default ui-corner-all tooltip" do %>
+													<span class="ui-icon i-icon-mail-open"></span>
+												<% end %>
+												</td>
+											</tr>
+										<% end %> 
+									</tbody>
+								</table>
+							</form>
+								<%= paginate (@totalMedicos)  %>
+						</div>
+					<% end %>
+        			<%= render :partial => 'templates/sidebar' %>
+        		</div>
+        	</div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,53 @@
+	<div id="page_wrapper">
+		<div id="page-header">
+			<div id="page-header-wrapper">
+				<div id="top">
+					<a href="dashboard.php" class="logo" title="Admintasia V2.0">Admintasia V2.0</a>
+					<div class="welcome">
+						<span class="note"><%=t :welcome_message %> <a href="#"><%=current_usuario.nome%></a></span>
+						<%= link_to destroy_usuario_session_path, :method => :delete, :class => 'btn ui-state-default ui-corner-all' do %>
+							<span class="ui-icon ui-icon-power"></span>
+  							<%=t :botao_logout_label %>
+						<% end %>		
+					</div>
+				</div>
+				<ul id="navigation">
+					<li>
+						<%= link_to dashboard_index_path , :class => "sf-with-ul" do %>
+							<%=t :menu_dashboard_label %>
+						<% end %>
+					</li>
+					<li>
+						<%= link_to medicos_path , :class => "sf-with-ul" do %>
+							<%=t :menu_medico_label %>
+						<% end %>
+					</li>
+					<% if usuario_session[:perfil] == 'ROLE_ATENDENTE' || usuario_session[:perfil] == 'ROLE_MEDICO' %>
+						<li>
+							<%= link_to pacientes_path , :class => "sf-with-ul" do %>
+								<%=t :menu_paciente_label %>
+							<% end %>
+						</li>
+					<% end %>
+
+					<% if usuario_session[:perfil] == 'ROLE_ATENDENTE' %>
+						<li>
+							<%= link_to atendimentos_path , :class => "sf-with-ul" do %>
+								<%=t :menu_atendimentos_label %>
+							<% end %>
+						</li>
+						<li>
+							<%= link_to tarefas_path, {:class => 'sf-with-ul'} do %>
+								<%=t :menu_tarefas_label %>
+							<% end %>
+						</li>	
+					<% end %>
+			
+			</ul>
+				<div id="search-bar">
+					<form method="post" action="http://www.google.com/">
+						<input type="text" name="q" value="live search demo" />
+					</form>
+				</div> 
+			</div>
+		</div> 

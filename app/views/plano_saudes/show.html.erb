@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Nome:</b>
+  <%= @plano_saude.nome %>
+</p>
+
+<p>
+  <b>Tipo:</b>
+  <%= @plano_saude.tipo %>
+</p>
+
+<p>
+  <b>Validade:</b>
+  <%= @plano_saude.validade %>
+</p>
+
+<p>
+  <b>Numero:</b>
+  <%= @plano_saude.numero %>
+</p>
+
+
+<%= link_to 'Edit', edit_plano_saude_path(@plano_saude) %> |
+<%= link_to 'Back', plano_saudes_path %>

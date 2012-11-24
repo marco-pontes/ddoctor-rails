@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Crm:</b>
+  <%= @medico.crm %>
+</p>
+
+<p>
+  <b>Biografia:</b>
+  <%= @medico.biografia %>
+</p>
+
+<p>
+  <b>Especialidade:</b>
+  <%= @medico.especialidade %>
+</p>
+
+<p>
+  <b>Agenda:</b>
+  <%= @medico.agenda %>
+</p>
+
+<p>
+  <b>Precoconsulta:</b>
+  <%= @medico.precoConsulta %>
+</p>
+
+
+<%= link_to 'Edit', edit_medico_path(@medico) %> |
+<%= link_to 'Back', medicos_path %>

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  destinatario: 
+  remetente: 
+  assunto: MyString
+  tipo: MyString
+  corpo: MyString
+
+two:
+  destinatario: 
+  remetente: 
+  assunto: MyString
+  tipo: MyString
+  corpo: MyString

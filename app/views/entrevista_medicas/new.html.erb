@@ -1,0 +1,101 @@
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <g:set var="entityName" value="${message(code: 'entrevistaMedica.label', default: 'Consulta')}" />
+        <title><g:message code="default.create.label" args="[entityName]" /></title>
+    </head>
+    <body>
+    	<div id="sub-nav">
+			<%= breadcrumb(t(:dashboard_doctor_title), true) %>
+		</div>
+		<div id="page-layout">
+			<div id="page-content">
+				<div id="page-content-wrapper">
+					<div class="inner-page-title">
+	          			<h2><g:message code="consultation.enterview.welcome.message" /></h2>
+						<span><g:message code="consultation.enterview.welcome.hint" /></span>
+					</div>
+					<div class="clear"></div>
+					<div class="content-box">
+			            	<% if flash[:mensagem] -%>
+			            	<div class="response-msg <%= flash[:mensagem][:tipo] %> ui-corner-all">
+			            		<% if flash[:mensagem][:tipo] == "info" -%>
+									<span> <%= t :info_box_label %></span>
+								<% end -%>
+								<% if flash[:mensagem][:tipo] == "success"-%>
+									<span> <%= t :success_box_label %></span>
+								<% end -%>
+								<% if flash[:mensagem][:tipo] == "error" -%>
+									<span> <%= t :error_box_label %></span>
+								<% end -%>
+								<%= flash[:mensagem][:texto] %>
+							</div>
+						<% end -%>
+						   <% if @entrevista_medica.errors.any? %>
+						   <div class="response-msg error ui-corner-all">
+						     <span><%= pluralize(@entrevista_medica.errors.count, "error") %> <%= t :error_box_label %></span>
+						      <% @entrevista_medica.errors.full_messages.each do |msg| %>
+						        <li><%= msg %></li>
+						      <% end %>
+						    </div>
+						  <% end %>
+						<%= form_for(@entrevista_medica) do |f| %>
+						<%= hidden_field("atendimento", "" , {:id => 'atendimento_id', :name => 'atendimento_id', :value => params[:atendimento_id]}) %>
+						<ul>
+							<li>
+						    	<%= f.label :altura, :class=> "desc" %>
+    							<div>
+	    							<%= f.text_field :problema, :class => "field text small" %>
+    							</div>
+							</li>
+							<li>
+								<%= f.label :peso, :class=> "desc" %>
+    							<div>
+	    							<%= f.text_field :peso, :class => "field text small" %>
+    							</div>
+							</li>
+                        
+							<li>
+								<%= f.label :pressao, :class=> "desc" %>
+    							<div>
+	    							<%= f.text_field :pressao, :class => "field text small" %>
+    							</div>
+							</li>
+							<li>
+								<%= f.label :problema, :class=> "desc" %>
+    							<div>
+	    							<%= f.text_field :problema, :class => "field text small" %>
+    							</div>
+							</li>
+							<li>
+								<%= f.label :medicacao, :class=> "desc" %>
+    							<div>
+	    							<%= f.text_field :medicacao, :class => "field text small" %>
+    							</div>
+							</li>
+                        
+							<li>
+								<%= f.label :obervacoes, :class=> "desc" %>
+    							<div>
+	    							<%= f.text_field :observacoes, :class => "field text small" %>
+    							</div>
+							</li>
+                        
+							<li>
+								<%= f.label :laudoMedico, :class=> "desc" %>
+    							<div>
+	    							<%= f.text_field :laudoMedico, :class => "field text small" %>
+    							</div>
+							</li>
+		                <li class="buttons">
+		                	<%= f.submit :class => "ui-state-default ui-corner-all ui-button", :value => t (:button_finish_enterview_label) %>
+		                </li>
+		                </ul>
+		        	</div>
+		            <% end %>
+					<%= render :partial => 'templates/sidebar' %>
+				</div>
+			</div>
+		</div>		        
+    </body>
+</html>

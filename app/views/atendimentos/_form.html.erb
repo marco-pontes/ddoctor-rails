@@ -1,0 +1,41 @@
+<%= form_for(@atendimento) do |f| %>
+  <% if @atendimento.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@atendimento.errors.count, "error") %> prohibited this atendimento from being saved:</h2>
+
+      <ul>
+      <% @atendimento.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :paciente %><br />
+    <%= f.text_field :paciente %>
+  </div>
+  <div class="field">
+    <%= f.label :status %><br />
+    <%= f.text_field :status %>
+  </div>
+  <div class="field">
+    <%= f.label :pago %><br />
+    <%= f.check_box :pago %>
+  </div>
+  <div class="field">
+    <%= f.label :precoTotal %><br />
+    <%= f.text_field :precoTotal %>
+  </div>
+  <div class="field">
+    <%= f.label :consulta %><br />
+    <%= f.text_field :consulta %>
+  </div>
+  <div class="field">
+    <%= f.label :data %><br />
+    <%= f.datetime_select :data %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

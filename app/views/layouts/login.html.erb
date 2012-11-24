@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>Login</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+		<%= stylesheet_link_tag "ui/ui.base" %>
+		<%= stylesheet_link_tag "ui/ui.login" %>
+		<%= stylesheet_link_tag "main", :media => "all" %>
+		<%= stylesheet_link_tag "css/fullcalendar" %>
+		<%= stylesheet_link_tag "themes/black_rose/ui", :media => "all" %>
+		<%= stylesheet_link_tag "themes/black_rose/ui", :media => "all", :title => "style" %>
+
+		<%= javascript_include_tag "application" %>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				// Tabs
+				//$('#tabs, #tabs2, #tabs5').tabs();
+				$('#tabs').tabs();
+			});
+		</script>
+	</head>
+	<body>
+		<div id="page_wrapper">
+			<div id="page-header">
+				<div id="page-header-wrapper">
+					<div id="top">
+						<a href="#" class="logo" title="Admintasia V2.0">Admintasia V2.0</a>
+						<div class="welcome"></div>
+					</div>
+				</div>
+			</div>
+			<div id="sub-nav">
+				<div class="page-title">
+					<h1><%= t :login_area_title %> </h1>
+					<span><%= t :login_area_message %> </span>
+				</div>
+			</div>
+			<div class="clear"></div>
+			<div id="page-layout">
+				<div id="page-content">
+					<div id="page-content-wrapper">
+
+						<div id="tabs">
+							<ul>
+								<li>
+									<a href="#login"><%= t :login_info_tab %> </a>
+								</li>
+							</ul>
+							<div id="login">
+								<% if flash[:notice] or flash[:alert] -%>
+								<div class="response-msg error ui-corner-all">
+									<span><%= t :error_box_label %></span>
+									<%= flash[:notice] %>
+									<%= flash[:alert] %>
+								</div>
+								<% end -%>
+
+								<%= yield %>
+							</div>
+
+						</div>
+
+					</div>
+					<div class="clear"></div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

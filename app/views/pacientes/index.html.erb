@@ -1,0 +1,79 @@
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="layout" content="main" />
+        <g:set var="entityName" value="${message(code: 'paciente.label', default: 'Paciente')}" />
+        <title><%= t :default_list_label%></title>
+		<%= javascript_include_tag "paciente/listar" %>     
+    </head>
+    <body>
+    	<div id="sub-nav">
+    		<%= breadcrumb(t(:pacients_page_title), true) %>
+		</div>
+		<div id="page-layout">
+			<div id="page-content">
+				<div id="page-content-wrapper">
+					<div class="inner-page-title">
+	          			<h2><%= t :pacient_list_inner_title %> </h2>
+						<span><%= t :pacient_list_inner_hint %></span>
+					</div>
+					<div class="clear"></div>
+		            <% if flash[:mensagem] -%>
+		            	<div class="response-msg <%= flash[:mensagem][:tipo] %> ui-corner-all">
+		            		<% if flash[:mensagem][:tipo] == "info" -%>
+								<span> <%= t :info_box_label %></span>
+							<% end -%>
+							<% if flash[:mensagem][:tipo] == "success"-%>
+								<span> <%= t :success_box_label %></span>
+							<% end -%>
+							<% if flash[:mensagem][:tipo] == "error" -%>
+								<span> <%= t :error_box_label %></span>
+							<% end -%>
+							<%= flash[:mensagem][:texto] %>
+						</div>
+					<% end -%>
+		            <% if @pacientes.length() > 0 %>
+			            <div class="hastable">
+							<form name="myform" method="post" action="" class="lista">
+								<table class="listagem" id="sort-table"> 
+									<thead> 
+										<tr>
+				                            <th class="header"><%= t :paciente_foto_label %></th>
+				                            <th class="header"><%= t :paciente_nome_label %></th>
+				                            <th class="header"><%= t :paciente_email_label %></th>
+				                            <th class="header"><%= t :paciente_telefone_label %></th>
+				                            <th class="header"><%= t :paciente_dataNascimento_label %></th>
+										</tr>
+									</thead>
+									<tbody>
+										<% @pacientes.each_with_index do |paciente, i| %> 
+											<tr>
+												<td>
+													<%= image_tag("no_picture_small.png")%>
+												</td>
+												<td>
+													<h3><%= paciente.nome %></h3>
+												</td>
+												<td>
+													<%= paciente.email %>
+												</td>
+												<td>
+													<%= paciente.telefone %>
+												</td>
+												<td>
+													<%= paciente.planoSaude.nome%>
+												</td>
+											</tr>
+										<% end %> 
+									</tbody>
+								</table>
+							</form>
+							<%= paginate (@totalPacientes)  %>
+						</div>
+					<% end %>
+        			<%= render :partial => 'templates/sidebar' %>
+        		</div>
+        	</div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,2 @@
+module MedicacaosHelper
+end

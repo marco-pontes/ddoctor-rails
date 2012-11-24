@@ -1,0 +1,35 @@
+<h1>Listing entrevista_medicas</h1>
+
+<table>
+  <tr>
+    <th>Problema</th>
+    <th>Medicacao</th>
+    <th>Observacoes</th>
+    <th>Laudomedico</th>
+    <th>Altura</th>
+    <th>Peso</th>
+    <th>Pressao</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @entrevista_medicas.each do |entrevista_medica| %>
+  <tr>
+    <td><%= entrevista_medica.problema %></td>
+    <td><%= entrevista_medica.medicacao %></td>
+    <td><%= entrevista_medica.observacoes %></td>
+    <td><%= entrevista_medica.laudoMedico %></td>
+    <td><%= entrevista_medica.altura %></td>
+    <td><%= entrevista_medica.peso %></td>
+    <td><%= entrevista_medica.pressao %></td>
+    <td><%= link_to 'Show', entrevista_medica %></td>
+    <td><%= link_to 'Edit', edit_entrevista_medica_path(entrevista_medica) %></td>
+    <td><%= link_to 'Destroy', entrevista_medica, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Entrevista medica', new_entrevista_medica_path %>

@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+<p>
+  <b>Nome:</b>
+  <%= @medicacao.nome %>
+</p>
+<p>
+  <b>Tarja:</b>
+  <%= @medicacao.tarja %>
+</p>
+<p>
+  <b>Bula:</b>
+  <%= @medicacao.bula %>
+</p>
+<p>
+  <b>Quantidade:</b>
+  <%= @medicacao.quantidade %>
+</p>
+<p>
+  <b>Unidade:</b>
+  <%= @medicacao.unidade %>
+</p>
+<p>
+  <b>Fabricante:</b>
+  <%= @medicacao.fabricante %>
+</p>
+<p>
+  <b>Data compra:</b>
+  <%= @medicacao.data_compra %>
+</p>
+<%= link_to 'Edit', edit_medicacao_path(@medicacao) %> |
+<%= link_to 'Back', medicacoes_path %>

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  crm: 1
+  biografia: MyString
+  especialidade: 
+  agenda: 
+  precoConsulta: 1.5
+
+two:
+  crm: 1
+  biografia: MyString
+  especialidade: 
+  agenda: 
+  precoConsulta: 1.5

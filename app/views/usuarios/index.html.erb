@@ -1,0 +1,47 @@
+<h1>Listing usuarios</h1>
+
+<table>
+  <tr>
+    <th>Login</th>
+    <th>Senha</th>
+    <th>Ativo</th>
+    <th>Contaexpirada</th>
+    <th>Contabloqueada</th>
+    <th>Senhaexpirada</th>
+    <th>Nome</th>
+    <th>Idade</th>
+    <th>Documento</th>
+    <th>Telefone</th>
+    <th>Sexo</th>
+    <th>Datanascimento</th>
+    <th>Email</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @usuarios.each do |usuario| %>
+  <tr>
+    <td><%= usuario.login %></td>
+    <td><%= usuario.senha %></td>
+    <td><%= usuario.ativo %></td>
+    <td><%= usuario.contaExpirada %></td>
+    <td><%= usuario.contaBloqueada %></td>
+    <td><%= usuario.senhaExpirada %></td>
+    <td><%= usuario.nome %></td>
+    <td><%= usuario.idade %></td>
+    <td><%= usuario.documento %></td>
+    <td><%= usuario.telefone %></td>
+    <td><%= usuario.sexo %></td>
+    <td><%= usuario.dataNascimento %></td>
+    <td><%= usuario.email %></td>
+    <td><%= link_to 'Show', usuario %></td>
+    <td><%= link_to 'Edit', edit_usuario_path(usuario) %></td>
+    <td><%= link_to 'Destroy', usuario, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Usuario', new_usuario_path %>

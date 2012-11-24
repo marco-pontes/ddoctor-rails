@@ -1,0 +1,77 @@
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <g:set var="entityName" value="${message(code: 'mensagem.label', default: 'Mensagem')}" />
+        <title><%= t :default_list_label%></title>
+		<%= javascript_include_tag "mensagem/listar" %>     
+    </head>
+    <body>
+    	<div id="sub-nav">
+			<%= breadcrumb(t(:consultation_list_title), true) %>
+		</div>
+		<div id="page-layout">
+			<div id="page-content">
+				<div id="page-content-wrapper">
+					<div class="inner-page-title">
+	          			<h2><%= t :messages_list_inner_title %> </h2>
+						<span><%= t :messages_list_inner_hint %></span>
+					</div>
+					<div class="content-box">
+				 		<div class="clearfix"></div>
+				        <% if flash[:mensagem] -%>
+			            	<div class="response-msg <%= flash[:mensagem][:tipo] %> ui-corner-all">
+			            		<% if flash[:mensagem][:tipo] == "info" -%>
+									<span> <%= t :info_box_label %></span>
+								<% end -%>
+								<% if flash[:mensagem][:tipo] == "success"-%>
+									<span> <%= t :success_box_label %></span>
+								<% end -%>
+								<% if flash[:mensagem][:tipo] == "error" -%>
+									<span> <%= t :error_box_label %></span>
+								<% end -%>
+								<%= flash[:mensagem][:texto] %>
+							</div>
+						<% end -%>
+            
+						<% if @mensagens.length() > 0 %>
+							<div class="hastable">
+								<form name="myform" class="pager-form" method="post" action="">
+									<table id="sort-table"> 
+										<thead> 
+										<tr>
+											<th><%= t :mensagem_corpo_label %></th> 
+											<th><%= t :mensagem_asunto_label %></th> 
+											<th><%= t :mensagem_dataEnvio_label %></th> 
+											<th style="width:64px"><%= t :table_options %></th> 
+										</tr> 
+										</thead> 
+										<tbody>
+											<% @mensagens.each_with_index do |mensagem, i| %> 
+												<tr>
+							                            <td><%= mensagem.corpo %></td>
+							                            <td><%= mensagem.assunto %></td>
+							                            <td><%= l mensagem.dataEnvio %></td>
+							                    	<td>
+														<%= link_to "", {:class => 'btn_no_text ui-state-default ui-corner-all tooltip', :href => "#", :onClick => "javascript:abreModalMensagens(event, #{mensagem.id} );", :style => "float:left;", :title => t (:open_message_button_title)} do %>
+															<span class="ui-icon ui-icon ui-icon-mail-open"></span>
+														<% end %>
+														<%= link_to "", {:class => 'btn_no_text ui-state-default ui-corner-all tooltip', :href => "#", :onClick => "javascript:apagaEmail(event, #{mensagem.id} );", :style => "float:left;", :title => t (:delete_message_button_title)} do %>
+															<span class="ui-icon ui-icon-trash"></span>
+														<% end %>
+													</td>
+												</tr>
+											<% end %>
+										</tbody>
+									</table>
+								</form>
+								<%= paginate (@totalMensagens)  %>
+	        				</div>
+						<% end %>
+        				<%= render :partial => 'templates/sidebar' %>
+        			</div>
+        		</div>
+        	</div>
+        </div>
+	    <div id="modal_mensagens" title="<%= t(:modal_emails_manage_title) %>"></div>
+    </body>
+</html>

@@ -1,0 +1,44 @@
+<div id="page-layout">
+	<div id="page-content">
+		<div id="page-content-wrapper">
+			
+			<div class="clear"></div>
+			<div class="content-box">
+	            <% if flash[:mensagem] -%>
+	            	<div class="response-msg <%= flash[:mensagem][:tipo] %> ui-corner-all">
+	            		<% if flash[:mensagem][:tipo] == "info" -%>
+							<span> <%= t :info_box_label %></span>
+						<% end -%>
+						<% if flash[:mensagem][:tipo] == "success"-%>
+							<span> <%= t :success_box_label %></span>
+						<% end -%>
+						<% if flash[:mensagem][:tipo] == "error" -%>
+							<span> <%= t :error_box_label %></span>
+						<% end -%>
+						<%= flash[:mensagem][:texto] %>
+					</div>
+				<% end -%>
+         			<div class="cont ui-corner-all" style="line-height:1">
+					<h3 style="display:inline;font-weight: bold;"><%= @mensagemInstancia.assunto %></h3>
+					<div>
+						<%= l @mensagemInstancia.dataEnvio %>  
+					</div>
+					<div>
+						<%= @mensagemInstancia.remetente.nome %>
+					</div>
+					<div class="task-text">
+						<%= @mensagemInstancia.corpo %>
+					</div>
+					<div class="buttons-wrapper">
+						<%= link_to "", :class => 'btn ui-state-default ui-corner-all apagar', :href => "#", :onClick => "javascript:apagaEmail(event, #{@mensagemInstancia.id})" do %>
+							<span class="ui-icon ui-icon-grip-dotted-horizontal"></span>
+							<%=t :box_email_delete %>
+						<% end %>
+
+						<div class="clear"></div>
+					</div>
+        		</div>
+			</div>
+		</div>
+	</div>	
+</div>

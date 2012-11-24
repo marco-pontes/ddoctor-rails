@@ -1,0 +1,29 @@
+<h1>Listing plano_saudes</h1>
+
+<table>
+  <tr>
+    <th>Nome</th>
+    <th>Tipo</th>
+    <th>Validade</th>
+    <th>Numero</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @plano_saudes.each do |plano_saude| %>
+  <tr>
+    <td><%= plano_saude.nome %></td>
+    <td><%= plano_saude.tipo %></td>
+    <td><%= plano_saude.validade %></td>
+    <td><%= plano_saude.numero %></td>
+    <td><%= link_to 'Show', plano_saude %></td>
+    <td><%= link_to 'Edit', edit_plano_saude_path(plano_saude) %></td>
+    <td><%= link_to 'Destroy', plano_saude, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Plano saude', new_plano_saude_path %>

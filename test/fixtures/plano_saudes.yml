@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  nome: MyString
+  tipo: MyString
+  validade: 2012-06-24 17:00:40
+  numero: 1
+
+two:
+  nome: MyString
+  tipo: MyString
+  validade: 2012-06-24 17:00:40
+  numero: 1

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  medico: 
+  paciente: 
+  data: 2012-06-30 18:45:22
+  status: MyString
+  entrevistaMedica: 
+
+two:
+  medico: 
+  paciente: 
+  data: 2012-06-30 18:45:22
+  status: MyString
+  entrevistaMedica: 

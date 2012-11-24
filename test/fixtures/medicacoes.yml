@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  nome: MyString
+  tarja: MyString
+  bula: MyString
+  quantidade: 1
+  unidade: MyString
+  fabricante: MyString
+  data_compra: 2012-10-28 22:33:06
+
+two:
+  nome: MyString
+  tarja: MyString
+  bula: MyString
+  quantidade: 1
+  unidade: MyString
+  fabricante: MyString
+  data_compra: 2012-10-28 22:33:06

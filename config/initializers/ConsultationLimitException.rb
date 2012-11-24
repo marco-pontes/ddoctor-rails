@@ -1,0 +1,2 @@
+class ConsultationLimitException < Exception
+end

@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  paciente: 
+  status: MyString
+  pago: false
+  precoTotal: 1.5
+  consulta: 
+  data: 2012-06-30 19:33:03
+
+two:
+  paciente: 
+  status: MyString
+  pago: false
+  precoTotal: 1.5
+  consulta: 
+  data: 2012-06-30 19:33:03

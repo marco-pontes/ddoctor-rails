@@ -1,0 +1,150 @@
+		<div id="sidebar">
+			<div class="sidebar-content">
+				<a id="close_sidebar" class="btn ui-state-default full-link ui-corner-all" href="#drill">
+					<span class="ui-icon ui-icon-circle-arrow-e"></span>
+					<%=t :close_sidebar_label %>
+				</a>
+				<a id="open_sidebar" class="btn tooltip ui-state-default full-link icon-only ui-corner-all" title="Open Sidebar" href="#"><span class="ui-icon ui-icon-circle-arrow-w"></span></a>
+				<div class="hide_sidebar">
+					<% if usuario_session[:perfil] == "ROLE_MEDICO" %>
+						<% if params[:controller] == "dashboard" && params[:action] == "medico" %>	
+							<div class="box ui-widget ui-widget-content ui-corner-all">
+								<h3><%=t :agenda_label_section %></h3>
+								<div class="content">
+									<%= link_to "", :class => 'btn ui-state-default full-link ui-corner-all', :href => "#", :onClick => "javascript:abreModalAgenda(event, #{current_usuario.id});" do %>
+										<span class="ui-icon ui-icon-arrowreturnthick-1-n"></span>
+										<%=t :link_agenda_medico %>  
+									<% end %>
+								</div>
+							</div>
+						<% end %>
+					<% end %>
+					
+					<% if usuario_session[:perfil] == "ROLE_ATENDENTE"  %>
+						<% if (params[:controller] == "dashboard" && params[:action] == "atendente") ||
+							(params[:controller] == "atendimento" && params[:action] == "listar") ||
+							(params[:controller] == "atendimento" && params[:action] == "mostrar") %>	
+							<div class="box ui-widget ui-widget-content ui-corner-all">
+								<h3>Atendimentos</h3>
+								<div class="content">
+									<%= link_to "", :class => 'btn ui-state-default full-link ui-corner-all atendimento_criar', :href => "#" do %>
+										<span class="ui-icon ui-icon-arrowreturnthick-1-n"></span>
+										<%=t :button_atendimento_new_label %>  
+									<% end %>
+								</div>
+							</div>
+							<div class="clear"></div>
+						<% end %>
+					<% end %>
+					
+					<% if usuario_session[:perfil] == "ROLE_PACIENTE" %>
+						<% if params[:controller] == "dashboard" && params[:action] == "paciente" %>		
+							<div class="box ui-widget ui-widget-content ui-corner-all">
+								<h3><%=t :titulo_consultas %></h3>
+								<div class="content">
+									<%= link_to "", :class => 'btn ui-state-default full-link ui-corner-all consulta_criar', :href => "#" do %>
+										<span class="ui-icon ui-icon-arrowreturnthick-1-n"></span>
+										<%=t :botao_incluir_consulta %>
+									<% end %>
+								</div>
+							</div>
+						<% end %>
+					<% end %>
+					
+					
+					<% if usuario_session[:perfil] == "ROLE_ADMIN" %>
+						<% if params[:controller] == "medico" && params[:action] == "listar" %>		
+							<div class="box ui-widget ui-widget-content ui-corner-all">
+								<h3><%=t :sidebar_admin_section %></h3>
+								<div class="content">
+									<%= link_to "", :class => 'btn ui-state-default full-link ui-corner-all consulta_criar', :href => "#" do %>
+										<span class="ui-icon ui-icon-arrowreturnthick-1-n"></span>
+										<%=t :botao_incluir_consulta %>
+									<% end %>
+								</div>
+							</div>
+						<% end %>
+						<% if params[:controller] == "paciente" && params[:action] == "listar" %>	
+							<div class="box ui-widget ui-widget-content ui-corner-all">
+								<h3><%=t :sidebar_admin_section %></h3>
+								<div class="content">
+									<%= link_to paciente_create_path, :class => 'btn ui-state-default full-link ui-corner-all' do %>
+										<span class="ui-icon ui-icon-arrowreturnthick-1-n"></span>
+										<%=t :button_pacient_new_label %>
+									<% end %>
+								</div>
+							</div>
+							<div class="clear"></div>
+						<% end %>
+					<% end %>
+					
+				</div>
+			</div>
+		</div>
+		<div class="clear"></div>
+		<div id="modal_atendimento" title="<%= t :create_consultation_modal_title %>"></div>
+		<div id="modal_agenda" title="<%= t :modal_agenda_manage_title %>"></div>
+		<%= hidden_field("url_inicializa_modal", "" , 
+		{:id => 'url_inicializa_modal', :name => 'urlInicializaModal',
+			 :value => url_for(:controller => 'atendimentos', :action => 'inicializaModal')}) %>
+		<script>
+
+		function abreModalAgenda(event, idMedico) {
+			event.preventDefault();
+			var field = "<input type='hidden' name='agenda.id' val='' class='medico_id'/>";
+			$('#modal_agenda .medico_id').remove();
+			$('#modal_agenda').append(field);
+			$('#modal_agenda .medico_id').val(idMedico);
+			var elem = $("div#modal_agenda");
+			elem.dialog("open");
+			$("div.ui-widget-overlay").bind("click", {elem:elem}, fechaModal);
+		}
+		
+		$(document).ready(function() {
+			var urlInicializaModal = $('input#url_inicializa_modal').val();
+			$("div#modal_atendimento").dialog({
+			autoOpen : false,
+			position : [ 'center', 'top' ],
+			width : 800,
+			modal : true,
+			zIndex : 20000,
+			open : function(event, ui) {
+				$.ajax({
+					type : 'GET',
+					url : urlInicializaModal,
+					success : function(resposta) {
+						$('div#modal_atendimento').html(resposta);
+					}
+				});
+			}
+		});
+
+		$("div#modal_agenda").dialog({
+			autoOpen : false,
+			position : [ 'center', 'top' ],
+			width : 500,
+			modal : true,
+			zIndex : 20000,
+			open : function(event, ui) {
+				var idMedico = $('#modal_agenda .medico_id').val();
+				$.ajax({
+					type : 'GET',
+					data: {'medico_id': idMedico},
+					url : "../agendas/inicializaModal",
+					success : function(resposta) {
+						$('div#modal_agenda').html(resposta);
+					}
+				});
+			}
+		});
+		
+		function abreModalAtendimento(event) {
+			event.preventDefault();
+			var elem = $("div#modal_atendimento");
+			elem.dialog("open");
+			$("div.ui-widget-overlay").bind("click", {elem:elem}, fechaModal);
+		}
+		$('.atendimento_criar').bind('click', abreModalAtendimento);
+
+		});	
+	</script>

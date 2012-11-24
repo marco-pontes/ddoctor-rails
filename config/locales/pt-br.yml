@@ -1,0 +1,428 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+pt-br:
+  default_paginate_prev : " "
+  default_paginate_next : " "
+  default_boolean_true: "Sim"
+  default_boolean_false: "Não"
+  default_date_format: "dd/MM/yyyy HH:mm:ss"
+  default_date_hours_format: "HH:mm:ss"
+  default_date_day_format: "dd 'de' MMMM 'de' yyyy"
+  default_number_format: "0"
+  
+  default_created_message: "%{modelo} %{id} criado"
+  default_updated_message: "%{0} %{1} atualizado"
+  default_deleted_message: "%{modelo} %{id} removido"
+  default_not_deleted_message: "%{modelo} %{id} não pode ser removido"
+  default_not_found_message: "%{modelo} não foi encontrado com id %{id}"
+  default_optimistic_locking_failure: "Outro usuário atualizou este [%{0}] enquanto você tentou salvá-lo"
+  
+  default_home_label: "Principal"
+  default_list_label: "%{0} Listagem"
+  default_add_label: "Adicionar %{0}"
+  default_new_label: "Novo %{0}"
+  default_create_label: "Criar %{0}"
+  default_show_label: "Ver %{0}"
+  default_edit_label: "Editar %{0}"
+  
+  default_button_create_label: "Criar"
+  default_button_edit_label: "Editar"
+  default_button_update_label: "Alterar"
+  default_button_delete_label: "Remover"
+  default_button_delete_confirm_message: "Tem certeza?"
+  
+  # Mensagens de erro em atribuição de valores_ Use "typeMismatch_$className_$propertyName" para customizar (eg typeMismatch_Book_author)
+  typeMismatch_java_net_URL: "O campo %{0} deve ser uma URL válida."
+  typeMismatch_java_net_URI: "O campo %{0} deve ser uma URI válida."
+  typeMismatch_java_util_Date: "O campo %{0} deve ser uma data válida"
+  typeMismatch_java_lang_Double: "O campo %{0} deve ser um número válido."
+  typeMismatch_java_lang_Integer: "O campo %{0} deve ser um número válido."
+  typeMismatch_java_lang_Long: "O campo %{0} deve ser um número válido."
+  typeMismatch_java_lang_Short: "O campo %{0} deve ser um número válido."
+  typeMismatch_java_math_BigDecimal: "O campo %{0} deve ser um número válido."
+  typeMismatch_java_math_BigInteger: "O campo %{0} deve ser um número válido."
+  
+  paciente_nome_label : " Nome"
+  medico_nome_label : " Nome"
+  
+  
+  botao_confirmar_pagamento : " Confirmar Pagamento"
+  date_consulta_charts_format : " MM/dd/yyyy HH:mm"
+  date_consulta_data_format : " dd/MM/yyyy HH:mm"
+  consulta_data_dashboard_medico : " dd/MM/yyyy HH:mm"
+  dashboard_atendimento_opcoes : " Opções"
+  dashboard_atendimento_status : " Status"
+  dashboard_consultas_paciente_nome : " Nome do Paciente"
+  dashboard_consultas_horario : " Horário da Consulta"
+  botao_iniciar_consulta : " Iniciar"
+  dashboard_consultas_aguardando : " Próximas Consultas"
+  medico_telefone_label : " Telefone:"
+  medico_email_label : " Email:"
+  medico_preco_consulta_label : " Preço da Consulta: "
+  medicos_page_title : " Médicos"
+  default_select_option : " Selecionar"
+  botao_confirmar_atendimento : " Confirmar Atendimento"
+  paciente_nome : " Nome"
+  paciente_documento : " Documento"
+  tabela_pendentes : " Atendimentos Pendentes de Confirmação"
+  menu_dashboard_label : " Painel"
+  menu_medico_label : " Médicos"
+  menu_paciente_label : " Pacientes"
+  menu_agenda_label : " Minha Agenda"
+  menu_atendimentos_label : " Atendimentos"
+  agenda_mostrar_title : " Visualizar Agenda de Atendimentos"
+  atendimentos_aguardando_message : " Pacientes aguardando atendimento: "
+  atendimentos_finalizados_message : " Pacientes atendidos: "
+  nenhuma_consulta_message : " Sem consultas na fila de espera."
+  nenhuma_mensagem_message : " Sem mensagens na caixa de entrada."
+  nenhuma_proxima_consulta_message : " Não existem consultas marcadas."
+  nenhuma_tarefa_message : " Não existem tarefas a serem realizadas."
+  nenhuma_consulta_anterior_message : " Você não marcou nenhuma consulta anteriormente."
+  information_section_title : " Informações gerais."
+  information_section_hint : " Aqui você encontra as principais informações sobre suas consultas."
+  personal_section_title : " Informações Pessoais."
+  personal_section_hint : " Aqui você encontra seus principais dados pessoais."
+  botao_incluir_consulta : " Marcar consultas"
+  botao_logout_label : " Sair"
+  botao_settings_label : " Configurações"
+  button_atendimento_new_label : " Novo atendimento"
+  box_emails_title : " Minhas Mensagens"
+  box_agenda_title : " Minha Agenda"
+  link_to_agenda : " Ver Agenda Completa"
+  dashboard_doctor_title : " Painel do Médico"
+  dashboard_doctor_welcome_message : " Bem Vindo ao Painel do Médico "
+  dashboard_doctor_welcome_hint : " Neste painel você pode encontrar várias informações sobre os médicos, pacientes, agendas e consultas."
+  dashboard_pacient_title : " Painel do Paciente"
+  dashboard_pacient_welcome_message : " Bem Vindo ao Painel do Paciente."
+  dashboard_pacient_welcome_hint : " Neste painel você pode encontrar várias informações sobre os médicos, pacientes, agendas e consultas."
+  
+  dashboard_atendant_title : " Painel do Atendente"
+  dashboard_atendant_welcome_message : " Bem Vindo ao Painel do Atendente."
+  dashboard_atendant_welcome_hint : " Neste painel você pode encontrar várias informações sobre os médicos, pacientes, agendas e consultas."
+  box_tasks_title : " Tarefas Pendentes"
+  email_date_format : " 'Enviado' dd 'de' MMMM 'as' HH:mm"
+  consultation_list_inner_title : " Atendimentos"
+  consultation_list_inner_hint : " Abaixo estão listados todos os atendimentos cadastrados no sistema."
+  consultation_list_title : " Atendimentos"
+  doctor_list_inner_title : " Médicos"
+  doctor_list_inner_hint : " Abaixo estão listados todos os médicos e suas informações básicas."
+  pacient_list_inner_title : " Pacientes"
+  pacient_list_inner_hint : " Abaixo estão listados todos os pacientes com cadastro no sistema."
+  pacients_page_title : " Pacientes"
+  
+  search_pacient_message : " Nome do paciente"
+  pacient_info_here_message : " Informações do paciente(CPF, RG)"
+  search_doctor_message : " Nome do médico"
+  doctor_info_here_message : " Especialidade"
+  create_consultation_modal_title : " Criar Consulta"
+  modal_task_manage_title : "Gerenciar Tarefas"
+  modal_agenda_manage_title : "Gerenciar Agenda"
+  
+  doctor_section_title : " Médico"
+  pacient_section_title : " Paciente"
+  doctor_input_hint : " Digite o nome do médico"
+  pacient_input_hint : " Digite o nome do paciente"
+  consultation_summary_title : " Resumo da consulta a ser criada"
+  modal_message_standard_title : " Mensagem"
+  create_consultation_fail_message : " Erro ao criar a consulta!"
+  create_consultation_duplicate_message : "O paciente já tem uma consulta marcada com o médico!"
+  create_consultation_success_message : " Consulta criada com sucesso!"
+  
+  doctor_appointment_book : " Agenda Médica"
+  consultation_enterview_title : " Entrevista Médica"
+  button_confirm_arrival : " Confirmar Chegada"
+  consultation_list_pacient_label : " Nome do paciente"
+  consultation_list_status_label : " Status"
+  consultation_list_options_label : " Opções"
+  agenda_show_title : " Agenda de"
+  consultation_scheduled_noname : " Horário ocupado"
+  consultation_scheduled_name : " Reservado por %{nome}"
+  agenda_show_welcome_hint : " Navegue pela agenda do médico utilizando os botões abaixo"
+  consultation_data_header : " Dados da consulta"
+  consultation_date_label : " Data:"
+  
+  ddoctor_StatusAtendimento_AGUARDANDO_ATENDIMENTO : " Aguardando atendimento"
+  ddoctor_StatusAtendimento_AGUARDANDO_CHEGADA : " Aguardando chegada"
+  ddoctor_StatusAtendimento_FINALIZADO : " Finalizado"
+  consultation_status_label : " Status da consulta:"
+  consultation_date_format : " 'dia' dd 'de' MMMM 'as' hh:mm"
+  consultation_date_info : " Informações do atendimento"
+  button_confirm_consultation_label : " Confirmar Consulta"
+  button_cancel_consultation_label : " Cancelar Consulta"
+  consultation_status_canceled : " Consulta cancelada anteriormente"
+  consultation_confirm_welcome_message : " Confirmar Consulta"
+  consultation_confirm_welcome_hint : " Aqui é possível confirmar consultas criadas por pacientes."
+  consultation_confirm_title : " Confirmação de consulta"
+  message_confirm_consultation_confirmation : " Esta consulta será confirmada e adicionada a agenda do médico_ Deseja confirmar?"
+  info_box_label : " Caixa de informações"
+  consultation_confirmed_message : " Consulta confirmada com sucesso!"
+  consultation_confirmation_error : " Erro ao confirmar consulta."
+  no_tasks_message : " Sem tarefas para exibir."
+  
+  #Login
+  dashboard_button_label: ""
+  login_area_title : " Página de Login"
+  login_area_message : " Digite suas informações abaixo para entrar no sistema"
+  login_info_tab : " Dados"
+  helpers:
+    submit: 
+      usuario:
+        create: "Entrar"
+        update: "a"
+    label:
+      usuario:
+        email : " Nome de usuário"
+        password : " Senha"
+  
+  
+  delete_message_button_title : " Apagar mensagem"
+  
+  task_object_details_button : " Detalhes"
+  
+  
+  
+  #listagem atendimentos
+  atendimento_numero_label : " Número"
+  
+  #mostrar atendimento
+  atendimento_status_label : " Status do Atendimento: "
+  atendimento_date_label : " Data real do atendidimento na clínica: "
+  
+  
+  close_sidebar_label : " Fechar"
+  
+  task_list_creation_date : " dd/MM/yyyy HH:mm"
+  
+  ddoctor_StatusConsulta_CONFIRMADA : " Consulta confirmada anteriormente "
+  ddoctor_StatusConsulta_PENDENTE : " Consulta não confirmada "
+  ddoctor_StatusConsulta_CANCELADA : " "
+
+  attention_box_title : " Nova Tarefa"
+  tasks_manage_button : " Detalhes..."
+  
+  
+  
+  box_email_read : "Ler"
+  modal_emails_manage_title: "Detalhes da Mensagem"
+  modal_marcar_consulta_title: "Marcar Consulta"
+  open_task_button_title: "Detalhes"
+  task_list_welcome_message: Tarefas
+  task_list_welcome_hint: Abaixo estão listadas as tarefas(em qualquer status) para o seu usuário.
+  open_message_button_title: Detalhes
+  messages_list_inner_title: Mensagens
+  messages_list_inner_hint: Lista completa de mensagens
+  menu_tarefas_label: Minhas tarefas
+  button_finish_enterview_label: Finalizar entrevista
+  welcome_message: Bem vindo
+  
+  date:
+    abbr_day_names:
+    - Dom
+    - Seg
+    - Ter
+    - Qua
+    - Qui
+    - Sex
+    - Sáb
+    abbr_month_names:
+    -
+    - Jan
+    - Fev
+    - Mar
+    - Abr
+    - Mai
+    - Jun
+    - Jul
+    - Ago
+    - Set
+    - Out
+    - Nov
+    - Dez
+    day_names:
+    - Domingo
+    - Segunda
+    - Terça
+    - Quarta
+    - Quinta
+    - Sexta
+    - Sábado
+    formats:
+      default: ! '%d/%m/%Y'
+      long: ! '%d de %B de %Y'
+      short: ! '%d de %B'
+    month_names:
+    -
+    - Janeiro
+    - Fevereiro
+    - Março
+    - Abril
+    - Maio
+    - Junho
+    - Julho
+    - Agosto
+    - Setembro
+    - Outubro
+    - Novembro
+    - Dezembro
+    order:
+    - :day
+    - :month
+    - :year
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: aproximadamente 1 hora
+        other: aproximadamente %{count} horas
+      about_x_months:
+        one: aproximadamente 1 mês
+        other: aproximadamente %{count} meses
+      about_x_years:
+        one: aproximadamente 1 ano
+        other: aproximadamente %{count} anos
+      almost_x_years:
+        one: quase 1 ano
+        other: quase %{count} anos
+      half_a_minute: meio minuto
+      less_than_x_minutes:
+        one: menos de um minuto
+        other: menos de %{count} minutos
+      less_than_x_seconds:
+        one: menos de 1 segundo
+        other: menos de %{count} segundos
+      over_x_years:
+        one: mais de 1 ano
+        other: mais de %{count} anos
+      x_days:
+        one: 1 dia
+        other: ! '%{count} dias'
+      x_minutes:
+        one: 1 minuto
+        other: ! '%{count} minutos'
+      x_months:
+        one: 1 mês
+        other: ! '%{count} meses'
+      x_seconds:
+        one: 1 segundo
+        other: ! '%{count} segundos'
+    prompts:
+      day: Dia
+      hour: Hora
+      minute: Minuto
+      month: Mês
+      second: Segundo
+      year: Ano
+  errors: &errors
+    format: ! '%{attribute} %{message}'
+    messages:
+      accepted: deve ser aceito
+      blank: não pode ficar em branco
+      confirmation: não está de acordo com a confirmação
+      empty: não pode ficar vazio
+      equal_to: deve ser igual a %{count}
+      even: deve ser par
+      exclusion: não está disponível
+      greater_than: deve ser maior que %{count}
+      greater_than_or_equal_to: deve ser maior ou igual a %{count}
+      inclusion: não está incluído na lista
+      invalid: não é válido
+      less_than: deve ser menor que %{count}
+      less_than_or_equal_to: deve ser menor ou igual a %{count}
+      not_a_number: não é um número
+      not_an_integer: não é um número inteiro
+      odd: deve ser ímpar
+      record_invalid: ! 'A validação falhou: %{errors}'
+      taken: já está em uso
+      too_long: ! 'é muito longo (máximo: %{count} caracteres)'
+      too_short: ! 'é muito curto (mínimo: %{count} caracteres)'
+      wrong_length: não possui o tamanho esperado (%{count} caracteres)
+    template:
+      body: ! 'Por favor, verifique o(s) seguinte(s) campo(s):'
+      header:
+        one: ! 'Não foi possível gravar %{model}: 1 erro'
+        other: ! 'Não foi possível gravar %{model}: %{count} erros.'
+  helpers:
+    select:
+      prompt: Por favor selecione
+    submit:
+      create: Criar %{model}
+      submit: Salvar %{model}
+      update: Atualizar %{model}
+  number:
+    currency:
+      format:
+        delimiter: .
+        format: ! '%u %n'
+        precision: 2
+        separator: ! ','
+        significant: false
+        strip_insignificant_zeros: false
+        unit: R$
+    format:
+      delimiter: .
+      precision: 3
+      separator: ! ','
+      significant: false
+      strip_insignificant_zeros: false
+    human:
+      decimal_units:
+        format: ! '%n %u'
+        units:
+          billion:
+            one: bilhão
+            other: bilhões
+          million:
+            one: milhão
+            other: milhões
+          quadrillion:
+            one: quatrilhão
+            other: quatrilhões
+          thousand: mil
+          trillion:
+            one: trilhão
+            other: trilhões
+          unit: ''
+      format:
+        delimiter: .
+        precision: 2
+        significant: true
+        strip_insignificant_zeros: true
+      storage_units:
+        format: ! '%n %u'
+        units:
+          byte:
+            one: Byte
+            other: Bytes
+          gb: GB
+          kb: KB
+          mb: MB
+          tb: TB
+    percentage:
+      format:
+        delimiter: .
+    precision:
+      format:
+        delimiter: .
+  support:
+    array:
+      last_word_connector: ! ' e '
+      two_words_connector: ! ' e '
+      words_connector: ! ', '
+  time:
+    am: ''
+    formats:
+      default: ! '%A, %d de %B de %Y, %H:%M h'
+      long: ! '%A, %d de %B de %Y, %H:%M h'
+      short: ! '%d/%m, %H:%M h'
+      scheduled_events: ! '%b %d %Y %H:%M:%S'
+      date: ! '%d/%m/%Y'
+      time: ! '%H:%M'
+    pm: ''
+  # remove these aliases after 'activemodel' and 'activerecord' namespaces are removed from Rails repository
+  activemodel:
+    errors:
+      <<: *errors
+  activerecord:
+    errors:
+      <<: *errors
+  

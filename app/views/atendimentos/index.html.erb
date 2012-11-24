@@ -1,0 +1,89 @@
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="layout" content="main" />
+        <g:set var="entityName" value="${message(code: 'atendimento.label', default: 'Atendimento')}" />
+        <title><%= t :default_list_label %></title>
+    </head>
+    <body>
+    	<div id="sub-nav">
+    		<%= breadcrumb(t(:consultation_list_title), true) %>
+		</div>
+		<div id="page-layout">
+			<div id="page-content">
+				<div id="page-content-wrapper">
+					<div class="inner-page-title">
+	          			<h2><%= t :consultation_list_inner_title %> </h2>
+						<span><%= t :consultation_list_inner_hint %></span>
+					</div>
+		            <% if flash[:mensagem] -%>
+		            	<div class="response-msg <%= flash[:mensagem][:tipo] %> ui-corner-all">
+		            		<% if flash[:mensagem][:tipo] == "info" -%>
+								<span> <%= t :info_box_label %></span>
+							<% end -%>
+							<% if flash[:mensagem][:tipo] == "success"-%>
+								<span> <%= t :success_box_label %></span>
+							<% end -%>
+							<% if flash[:mensagem][:tipo] == "error" -%>
+								<span> <%= t :error_box_label %></span>
+							<% end -%>
+							<%= flash[:mensagem][:texto] %>
+						</div>
+					<% end -%>
+		            <% if @atendimentos.length() > 0 %>
+                        <div class="hastable">
+							<form name="myform" method="post" action="" class="lista">
+								<table class="listagem" id="sort-table"> 
+									<thead> 
+										<tr>
+											<th><%= t :atendimento_numero_label %></th>
+											<th><%= t :atendimento_status_label %></th>
+											<th><%= t :atendimento_horario_label %></th>
+				                            <th><%= t :atendimento_paciente_label %></th>
+				                            <th><%= t :atendimento_medico_label %></th>
+	                           			</tr>
+	                           		</thead>
+	                           		<tbody>
+										<% @atendimentos.each_with_index do |atendimento, i| %> 
+											<tr>
+												<td>
+													<%= link_to atendimento_path(atendimento.id) do %>
+													<%= image_tag("pen_paper_icon_small.png")%>
+														<%= atendimento.id %>
+													<% end %>
+												</td>
+												<td>
+													<h3><%= atendimento.status %></h3>
+												</td>
+												<td>
+													<% if atendimento.data != nil %>
+														<%= l atendimento.data %>
+													<% else %>
+														<%= t :nao_atendido_label %>
+													<% end %>
+												</td>
+												<td>
+													<%= link_to paciente_path(atendimento.paciente.id) do %>
+														<%= atendimento.paciente.nome %>
+													<% end %>
+													
+												</td>
+												<td>
+													<%= link_to medico_path(atendimento.consulta.medico.id) do %>
+														<%= atendimento.consulta.medico.nome %>
+													<% end %>
+												</td>
+											</tr>
+										<% end %> 
+									</tbody>
+								</table>
+							</form>
+							<%= paginate (@totalAtendimentos)  %>
+        				</div>
+        			<% end %>
+       			</div>
+       			<%= render :partial => 'templates/sidebar' %>
+       		</div>
+       	</div>
+    </body>
+</html>

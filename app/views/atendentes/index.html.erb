@@ -1,0 +1,21 @@
+<h1>Listing atendentes</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @atendentes.each do |atendente| %>
+  <tr>
+    <td><%= link_to 'Show', atendente %></td>
+    <td><%= link_to 'Edit', edit_atendente_path(atendente) %></td>
+    <td><%= link_to 'Destroy', atendente, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Atendente', new_atendente_path %>

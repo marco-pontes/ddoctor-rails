@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Ddoctor</title>
+		<%= stylesheet_link_tag "ui/ui.base" %>
+		<%= stylesheet_link_tag "main", :media => "all" %>
+		<%= stylesheet_link_tag "fullcalendar" %>
+		<%= stylesheet_link_tag "themes/black_rose/ui", :media => "all" %>
+		<%= stylesheet_link_tag "themes/black_rose/ui", :media => "all", :title => "style" %>
+
+		<%= javascript_include_tag "application" %>
+
+		<%= csrf_meta_tags %>
+	</head>
+	<body>
+
+		<% if session[:local] -%>
+			<%= hidden_field(:session, :local) %>
+		<% end -%>
+
+		<%= render :partial => 'layouts/header' %>
+
+		<%= yield %>
+
+		<%= render :partial => 'layouts/footer' %>
+
+		<% if session[:local] -%>
+			<%= javascript_include_tag "i18n/cultures/globalize.culture.#{session[:local]}" %>
+		<% end -%>
+
+	</body>
+</html>
